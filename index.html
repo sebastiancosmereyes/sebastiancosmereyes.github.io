@@ -1,113 +1,343 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="Aerospace engineering portfolio of Sebastian Cosme-Reyes.">
-  <title>Sebastian Cosme-Reyes | Aerospace Engineering</title>
-  <link rel="stylesheet" href="assets/css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sebastian Cosme-Reyes — Aerospace Engineering</title>
+<meta name="description" content="Portfolio of Sebastian Cosme-Reyes, an aerospace engineering student at Cal Poly SLO working in propulsion, aerodynamic design, and experimental fluid mechanics.">
+
+<!-- Fonts: Space Grotesk for headings, Inter for body text -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <a class="skip-link" href="#main">Skip to content</a>
-  <header class="site-header">
-    <a class="wordmark" href="index.html">Sebastian Cosme-Reyes</a>
-    <nav aria-label="Primary navigation">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<!-- ============================= HEADER / NAV ============================= -->
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="index.html">Sebastian Cosme-Reyes<span>.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main id="main">
-    <section class="hero">
-      <p class="eyebrow">Aerospace Engineering Portfolio</p>
-      <h1>Propulsion, aerodynamics, and experimental fluid mechanics.</h1>
-      <p class="hero-copy">I am an aerospace engineering student at Cal Poly San Luis Obispo who enjoys connecting rigorous analysis with hands-on design, fabrication, and testing.</p>
-      <a class="button button-primary" href="#projects">Explore my work</a>
-    </section>
+<main id="main">
 
-    <section id="about" class="section two-column">
-      <div>
-        <p class="eyebrow">About</p>
-        <h2>Curious about how flight works.</h2>
-      </div>
-      <div>
-        <p>My interest in aerospace began with a fascination for flight and difficult physics problems. Today, I apply fluid mechanics to problems in aerodynamic design and propulsion.</p>
-        <p>I am especially drawn to work that turns an idea into evidence: a model, a fabricated test article, a measurement, and a result that can be explained clearly.</p>
-      </div>
-    </section>
+  <!-- ============================= HERO ============================= -->
+  <section class="hero">
+    <!-- Animated flow-field: particles drift along streamlines and react
+         gently to the cursor (see assets/js/site.js). Purely decorative,
+         hidden from assistive tech. -->
+    <canvas class="flow-canvas" id="heroCanvas" data-flow-field aria-hidden="true"></canvas>
 
-    <section id="projects" class="section section-alt">
-      <div class="section-heading">
+    <!-- Faint grid layer that shifts at a different rate on scroll,
+         giving the hero a sense of depth. -->
+    <svg class="parallax-layer" data-parallax="0.12" viewBox="0 0 1400 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+      <g stroke="rgba(255,255,255,0.06)" stroke-width="1">
+        <line x1="0" y1="0" x2="0" y2="600"/>
+        <line x1="233" y1="0" x2="233" y2="600"/>
+        <line x1="466" y1="0" x2="466" y2="600"/>
+        <line x1="700" y1="0" x2="700" y2="600"/>
+        <line x1="933" y1="0" x2="933" y2="600"/>
+        <line x1="1166" y1="0" x2="1166" y2="600"/>
+        <line x1="1400" y1="0" x2="1400" y2="600"/>
+      </g>
+    </svg>
+
+    <div class="wrap hero-inner">
+      <p class="hero-eyebrow">Aerospace Engineering — Cal Poly, San Luis Obispo</p>
+      <h1>Sebastian Cosme-Reyes</h1>
+      <p class="hero-lede">
+        I study propulsion, aerodynamic design, and experimental fluid mechanics —
+        and I like connecting analytical work to physical hardware and test data.
+        This site collects the projects I've built, tested, and analyzed along the way.
+      </p>
+
+      <dl class="hero-meta">
         <div>
-          <p class="eyebrow">Selected work</p>
-          <h2>Projects</h2>
+          <dt>Program</dt>
+          <dd>B.S. / M.S. Aerospace Engineering</dd>
         </div>
-        <p>Each project page explains the objective, my contribution, approach, results, and next steps.</p>
+        <div>
+          <dt>Minor</dt>
+          <dd>Physics</dd>
+        </div>
+        <div>
+          <dt>Focus areas</dt>
+          <dd>Propulsion · Aerodynamics · Fluid mechanics</dd>
+        </div>
+      </dl>
+
+      <!-- Animated stat counters — real figures pulled from the projects
+           below. Counts up once scrolled into view (assets/js/site.js). -->
+      <div class="stat-row" data-reveal="stagger">
+        <div class="stat">
+          <span class="stat-value"><span data-count="1.45">0</span></span>
+          <span class="stat-label">Max Mach — X-1 analysis</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-count="100" data-suffix=" RPM">0</span></span>
+          <span class="stat-label">Cylinder drive control</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-count="20" data-suffix=" lbf">0</span></span>
+          <span class="stat-label">Bipropellant engine thrust</span>
+        </div>
+        <div class="stat">
+          <span class="stat-value"><span data-count="3.89">0</span></span>
+          <span class="stat-label">GPA, Aerospace Engineering</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================= ABOUT ============================= -->
+  <section class="about section" id="about">
+    <div class="wrap about-grid">
+      <div class="about-copy" data-reveal>
+        <p class="section-head" style="margin-bottom:0;"><span class="kicker">About</span></p>
+        <h2>What I'm building toward</h2>
+        <p>
+          My interest in aerospace started early, through my dad — a mechanical engineer who
+          showed me how things worked. One memory has stuck with me: watching Space Shuttle
+          Endeavour ride into Los Angeles on its carrier aircraft, low over the city. I was
+          hooked on flight after that, and every takeoff on a trip home to Puerto Rico has
+          reinforced it since.
+        </p>
+        <p>
+          Today that curiosity looks like reverse-engineering historical aircraft geometry in
+          MATLAB, building test apparatus for a water tunnel, and running PIV experiments to
+          see flow physics I'd otherwise only be able to calculate. I'm drawn to problems that
+          sit between analysis and hardware — where a model has to hold up against something
+          you can actually measure.
+        </p>
+        <p>
+          I'm currently pursuing my B.S. and M.S. in Aerospace Engineering at Cal Poly SLO,
+          with a minor in Physics, and I work as a Makerspace Shop Technician supporting
+          additive manufacturing and laser-cutting equipment for the college.
+        </p>
       </div>
 
-      <div class="project-grid">
+      <aside class="about-facts" aria-label="Quick facts" data-reveal>
+        <h3>At a glance</h3>
+        <ul>
+          <li>
+            <strong>Cal Poly, San Luis Obispo</strong>
+            B.S. Aerospace Engineering (Physics minor), expected Mar 2027;
+            M.S. Aerospace Engineering, expected Mar 2028
+          </li>
+          <li>
+            <strong>Makerspace Shop Technician</strong>
+            Cal Poly CENG — additive manufacturing, laser cutting, CAD-to-fabrication workflows
+          </li>
+          <li>
+            <strong>Engineering Co-Op</strong>
+            Arnold Magnetics Corporation — component testing, wiring diagrams, shock testing
+          </li>
+          <li>
+            <strong>Working in</strong>
+            Propulsion, aerodynamic design, experimental fluid mechanics, gas dynamics
+          </li>
+        </ul>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ============================= PROJECTS ============================= -->
+  <section class="projects section" id="projects">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker">Selected work</span>
+        <h2>Projects</h2>
+        <p style="color:var(--color-ink-soft); max-width:var(--measure);">
+          Each project below links to a full case study: the problem, my approach, the tools
+          I used, and what I found — including what didn't work or isn't finished yet.
+        </p>
+      </div>
+
+      <div class="project-grid" data-reveal="stagger">
+
+        <!-- Project card 1: Bell X-1 -->
         <a class="project-card" href="projects/bell-x1.html">
-          <div class="project-art art-bell" aria-hidden="true"><span>Mach 0–1.45</span></div>
-          <div class="project-card-content">
-            <p class="project-type">Aerodynamic analysis</p>
-            <h3>Bell X-1</h3>
-            <p>Subsonic and supersonic MATLAB analysis using panel methods, compressibility corrections, and linearized supersonic theory.</p>
-            <span class="project-link">View case study <span aria-hidden="true">→</span></span>
+          <div class="project-card-media is-placeholder" data-placeholder-label="Add geometry render or pressure-distribution plot — see assets/images/bell-x1/">
+            <!-- Replace this comment with a real image once available, e.g.:
+                 <img src="assets/images/bell-x1/hero.jpg" alt="Reconstructed Bell X-1 geometry with pressure-distribution overlay"> -->
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-tag">Computational aerodynamics</span>
+            <h3>Bell X-1 Subsonic &amp; Supersonic Aerodynamic Analysis</h3>
+            <p class="project-card-summary">
+              Reverse-engineered the Bell X-1's geometry and built MATLAB-based aerodynamic
+              analyses across Mach 0–1.45, validated against historical wind-tunnel data.
+            </p>
+            <span class="project-card-cta">View case study</span>
           </div>
         </a>
 
+        <!-- Project card 2: Rotating Cylinder -->
         <a class="project-card" href="projects/rotating-cylinder.html">
-          <div class="project-art art-cylinder" aria-hidden="true"><span>PIV research</span></div>
-          <div class="project-card-content">
-            <p class="project-type">Experimental fluid mechanics</p>
-            <h3>Rotating Cylinder Water Tunnel</h3>
-            <p>Designed, built, and tested a variable-speed rotating-cylinder apparatus to investigate the Magnus effect.</p>
-            <span class="project-link">View case study <span aria-hidden="true">→</span></span>
+          <div class="project-card-media is-placeholder" data-placeholder-label="Add apparatus photo or PIV flow field — see assets/images/rotating-cylinder/">
+            <!-- <img src="assets/images/rotating-cylinder/hero.jpg" alt="Rotating cylinder apparatus mounted in the water tunnel test section"> -->
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-tag">Experimental fluid mechanics</span>
+            <h3>Water Tunnel Rotating Cylinder Research</h3>
+            <p class="project-card-summary">
+              Designed and built a variable-speed rotating-cylinder apparatus and used PIV
+              to characterize circulation, lift, drag, and wake behavior tied to the Magnus effect.
+            </p>
+            <span class="project-card-cta">View case study</span>
           </div>
         </a>
 
+        <!-- Project card 3: Martian Dust -->
         <a class="project-card" href="projects/martian-dust.html">
-          <div class="project-art art-mars" aria-hidden="true"><span>Mars research</span></div>
-          <div class="project-card-content">
-            <p class="project-type">Research design</p>
-            <h3>Martian Dust Mitigation</h3>
-            <p>Developing a rotating-cylinder PIV experiment to investigate a possible solar-panel dust-mitigation method.</p>
-            <span class="project-link">View case study <span aria-hidden="true">→</span></span>
+          <div class="project-card-media is-placeholder" data-placeholder-label="Add concept diagram or setup photo — see assets/images/martian-dust/">
+            <!-- <img src="assets/images/martian-dust/hero.jpg" alt="Concept diagram of rotating-cylinder dust mitigation over a solar panel"> -->
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-tag is-ongoing">Ongoing research</span>
+            <h3>Martian Dust Mitigation Research</h3>
+            <p class="project-card-summary">
+              Investigating rotating-cylinder flow as a possible dust-mitigation method for
+              Martian solar panels, starting from wind, threshold, and deposition conditions.
+            </p>
+            <span class="project-card-cta">View case study</span>
           </div>
         </a>
 
+        <!-- Project card 4: Bipropellant Engine -->
         <a class="project-card" href="projects/bipropellant-engine.html">
-          <div class="project-art art-engine" aria-hidden="true"><span>20 lbf engine</span></div>
-          <div class="project-card-content">
-            <p class="project-type">Rocket propulsion</p>
+          <div class="project-card-media is-placeholder" data-placeholder-label="Add approved team/engine photo — see assets/images/bipropellant-engine/">
+            <!-- <img src="assets/images/bipropellant-engine/hero.jpg" alt="Team-built 20-lbf bipropellant rocket engine on the test stand"> -->
+          </div>
+          <div class="project-card-body">
+            <span class="project-card-tag">Propulsion</span>
             <h3>Bipropellant Rocket Engine</h3>
-            <p>Team design, manufacturing, and test firing of a 20-lbf bipropellant rocket engine.</p>
-            <span class="project-link">View case study <span aria-hidden="true">→</span></span>
+            <p class="project-card-summary">
+              Led a four-person team through design, analysis, manufacturing, and test firing
+              of a 20-lbf bipropellant engine, sizing the injector, chamber, and nozzle.
+            </p>
+            <span class="project-card-cta">View case study</span>
           </div>
         </a>
+
+        <!--
+          TO ADD A NEW PROJECT CARD:
+          1. Duplicate one of the <a class="project-card"> blocks above.
+          2. Point href at your new file, e.g. projects/your-project.html
+          3. Update the tag, title, and one-sentence summary.
+          4. Add a matching hero image once you have one, or keep the placeholder.
+          See README.md for the full walkthrough.
+        -->
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="skills" class="section">
-      <p class="eyebrow">Capabilities</p>
-      <h2>Tools and technical focus</h2>
-      <div class="skills-grid">
-        <article><h3>Analysis & simulation</h3><p>MATLAB, Python, ANSYS Fluent, Simulink, XFOIL, XFLR5</p></article>
-        <article><h3>Design & fabrication</h3><p>SolidWorks, Fusion 360, additive manufacturing, machining, laser cutting</p></article>
-        <article><h3>Testing & instrumentation</h3><p>PIV, wind and water tunnels, DAQ systems, pressure transducers, load cells</p></article>
+  <!-- ============================= SKILLS ============================= -->
+  <section class="skills section" id="skills">
+    <div class="wrap">
+      <div class="section-head" data-reveal>
+        <span class="kicker" style="color:var(--color-accent);">Capabilities</span>
+        <h2>Skills &amp; tools</h2>
       </div>
-    </section>
 
-    <section id="contact" class="section contact">
-      <p class="eyebrow">Contact</p>
-      <h2>Let’s connect.</h2>
-      <p>For project discussions or professional opportunities, find me on GitHub.</p>
-      <a class="button button-primary" href="https://github.com/sebastiancosmereyes">GitHub profile</a>
-    </section>
-  </main>
+      <div class="skill-groups" data-reveal="stagger">
+        <div class="skill-group">
+          <h3>Software &amp; programming</h3>
+          <ul>
+            <li>MATLAB</li>
+            <li>Python</li>
+            <li>SolidWorks</li>
+            <li>Fusion 360</li>
+            <li>ANSYS Fluent (CFD)</li>
+            <li>XFOIL</li>
+            <li>XFLR5</li>
+            <li>Arduino</li>
+            <li>Simulink</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Fabrication &amp; manufacturing</h3>
+          <ul>
+            <li>3D printing</li>
+            <li>Laser cutting</li>
+            <li>Lathe</li>
+            <li>Mill</li>
+            <li>Welding</li>
+            <li>Woodworking</li>
+            <li>Soldering</li>
+            <li>Waterjet</li>
+          </ul>
+        </div>
+        <div class="skill-group">
+          <h3>Testing &amp; instrumentation</h3>
+          <ul>
+            <li>Particle Image Velocimetry (PIV)</li>
+            <li>Wind &amp; water tunnel testing</li>
+            <li>Pressure transducers</li>
+            <li>DAQ systems</li>
+            <li>Load cells</li>
+            <li>Strain gauges</li>
+            <li>Oscilloscopes</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-  <footer>© 2026 Sebastian Cosme-Reyes</footer>
+  <!-- ============================= CONTACT ============================= -->
+  <section class="contact section--tight" id="contact">
+    <div class="wrap">
+      <div class="contact-inner" data-reveal>
+        <div class="contact-copy">
+          <h2>Get in touch</h2>
+          <p style="color:var(--color-ink-soft);">
+            Direct contact details aren't published here. If you'd like to reach out about
+            research, internships, or collaboration, use the links below.
+          </p>
+        </div>
+        <div class="contact-links">
+          <!--
+            CONTACT INFO:
+            Sebastian asked that no personal email or phone number be published
+            automatically. Replace the links below only after you've decided what
+            you're comfortable sharing publicly.
+
+            Example once approved:
+            <a class="btn btn-primary" href="mailto:youremail@example.com">Email me</a>
+          -->
+          <a class="btn btn-outline" href="https://github.com/sebastiancosmereyes" target="_blank" rel="noopener">GitHub</a>
+          <a class="btn btn-outline" href="#" aria-disabled="true" title="Add your LinkedIn URL here">LinkedIn (add link)</a>
+          <a class="btn btn-primary" href="#" title="Add a resume PDF or contact form link here">Request contact info</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================= FOOTER ============================= -->
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Sebastian Cosme-Reyes</span>
+    <span><a href="https://github.com/sebastiancosmereyes/sebastiancosmereyes.github.io" target="_blank" rel="noopener">Site source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="assets/js/site.js" defer></script>
+
 </body>
 </html>

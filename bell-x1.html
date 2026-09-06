@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Bell X-1 Aerodynamic Analysis — Sebastian Cosme-Reyes</title>
+<meta name="description" content="MATLAB-based subsonic and supersonic aerodynamic analysis of the Bell X-1, validated against historical wind-tunnel data.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="../index.html">Sebastian Cosme-Reyes<span>.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="case-hero">
+    <canvas class="flow-canvas" data-flow-field aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="breadcrumb"><a href="../index.html#projects">← All projects</a></p>
+      <span class="case-status">Completed — Mar 2026 to Jun 2026</span>
+      <h1>Bell X-1 Subsonic &amp; Supersonic Aerodynamic Analysis</h1>
+      <p class="case-summary">
+        A reconstruction of the Bell X-1's aerodynamics from Mach 0 through 1.45, built to
+        connect classical low-order methods with real historical flight-test conditions.
+      </p>
+
+      <dl class="case-facts">
+        <div>
+          <dt>Role</dt>
+          <dd>Individual project</dd>
+        </div>
+        <div>
+          <dt>Speed range</dt>
+          <dd>Mach 0–1.45</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>MATLAB</dd>
+        </div>
+        <div>
+          <dt>Program</dt>
+          <dd>Cal Poly SLO, independent study</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="case-body">
+    <div class="wrap">
+
+      <!-- OBJECTIVE -->
+      <section class="case-section" data-reveal>
+        <h2>Objective</h2>
+        <p class="measure">
+          The goal was to reverse-engineer the Bell X-1's external geometry and build a
+          MATLAB-based aerodynamic model capable of predicting its lift, drag, and moment
+          behavior across the full speed range it actually flew — from low-subsonic takeoff
+          conditions through its record-setting supersonic dash to Mach 1.45.
+        </p>
+      </section>
+
+      <!-- CONTEXT / SCOPE -->
+      <section class="case-section" data-reveal>
+        <h2>Context &amp; scope</h2>
+        <p class="measure">
+          The Bell X-1 is a useful validation case because detailed historical wind-tunnel
+          data exists to check predictions against, and because it crosses the transonic
+          regime — one of the harder regions to model well with classical methods. The scope
+          was analytical and computational: geometry reconstruction and aerodynamic modeling,
+          not physical testing.
+        </p>
+      </section>
+
+      <!-- ROLE -->
+      <section class="case-section" data-reveal>
+        <h2>My role &amp; contributions</h2>
+        <p class="measure">
+          I worked on this independently. I reverse-engineered the aircraft's geometry from
+          available reference drawings, wrote the MATLAB analysis pipeline from the panel
+          method through the supersonic wave-drag calculations, and ran the Mach sweep and
+          validation comparisons myself.
+        </p>
+      </section>
+
+      <!-- APPROACH -->
+      <section class="case-section" data-reveal>
+        <h2>Engineering approach &amp; tools</h2>
+        <div class="case-grid-2">
+          <div>
+            <p class="measure">
+              The analysis combined several classical aerodynamic methods, chosen to match
+              the flow regime at each Mach number:
+            </p>
+            <ul class="case-list">
+              <li>Panel methods for subsonic lift and pressure distribution</li>
+              <li>Compressibility corrections through the transonic range</li>
+              <li>Linearized supersonic theory above Mach 1</li>
+              <li>Pressure integration to recover lift, drag, and moment</li>
+              <li>Area-distribution (Sears-Haack-style) methods for wave drag</li>
+              <li>Conical-flow methods for supersonic nose and fuselage effects</li>
+            </ul>
+          </div>
+          <div>
+            <div class="media-frame" role="img" aria-label="Placeholder for reconstructed Bell X-1 geometry model — replace with a real render">
+              Geometry render — add image to assets/images/bell-x1/
+            </div>
+            <p class="media-caption">
+              <!-- Replace with: <img src="../assets/images/bell-x1/geometry.jpg" alt="Reconstructed Bell X-1 CAD/geometry model used in the analysis"> -->
+              Reconstructed geometry used as the basis for the aerodynamic model.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE DEMO: Mach cone -->
+      <section class="case-section" data-reveal>
+        <h2>Try it: Mach angle</h2>
+        <p class="measure">
+          One of the core relationships in the supersonic part of this analysis is the Mach
+          angle, μ = arcsin(1/M) — the angle of the shock cone trailing a body once it
+          exceeds Mach 1. Drag the slider to see how the wave pattern changes from subsonic
+          to supersonic.
+        </p>
+        <div class="demo">
+          <div class="demo-canvas-wrap">
+            <canvas id="machCanvas"></canvas>
+          </div>
+          <div class="demo-controls">
+            <div class="demo-control">
+              <label for="machSlider">Mach number <output id="machReadout">0.60</output></label>
+              <input type="range" id="machSlider" min="0.2" max="2.2" step="0.01" value="0.6">
+            </div>
+            <div class="demo-control">
+              <label>Mach angle</label>
+              <output id="machAngleReadout" style="font-family:var(--font-display); color:var(--color-accent);">—</output>
+            </div>
+            <div class="demo-control">
+              <label>Regime</label>
+              <output id="machRegime" style="font-size:0.85rem; color:#cfe3ea;">Subsonic</output>
+            </div>
+            <button class="demo-btn" id="machPlay" type="button">Pause</button>
+          </div>
+          <p class="demo-note">
+            Teaching visualization of expanding pressure waves from a moving point source —
+            not a plot from the MATLAB analysis itself.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESULTS / MEDIA -->
+      <section class="case-section" data-reveal>
+        <h2>Results &amp; key takeaways</h2>
+        <p class="measure">
+          The model produced lift, drag, and moment predictions along with pressure
+          distributions and fuselage wave-drag estimates across the Mach sweep, and these
+          were compared against historical wind-tunnel data. Add your specific figures,
+          plots, and validation commentary here once finalized.
+        </p>
+
+        <div class="media-block media-row">
+          <div>
+            <div class="media-frame">Pressure distribution plot — add image</div>
+            <p class="media-caption">Placeholder — replace with a real pressure-distribution plot.</p>
+          </div>
+          <div>
+            <div class="media-frame">Drag trend vs. Mach — add image</div>
+            <p class="media-caption">Placeholder — replace with your Mach-sweep drag results.</p>
+          </div>
+          <div>
+            <div class="media-frame">Validation comparison — add image</div>
+            <p class="media-caption">Placeholder — replace with a plot comparing your predictions to wind-tunnel data.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIMITATIONS / FUTURE WORK -->
+      <section class="case-section" data-reveal>
+        <h2>Limitations &amp; future work</h2>
+        <p class="measure">
+          Panel methods and linearized supersonic theory are low-order approximations —
+          they don't fully capture viscous effects, boundary-layer interactions, or
+          nonlinear transonic behavior near Mach 1. Note the specific limitations you found
+          in your own results here, along with what a higher-fidelity follow-up (e.g. a CFD
+          comparison) could add.
+        </p>
+      </section>
+
+      <!-- OPTIONAL VIDEO -->
+      <section class="case-section" data-reveal>
+        <h2>Video walkthrough</h2>
+        <p class="measure">Optional — add a short walkthrough of the analysis or results.</p>
+        <div class="video-frame is-placeholder">
+          Add a YouTube or Vimeo embed here. Replace this div with, for example:<br>
+          &lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Bell X-1 analysis walkthrough" allowfullscreen&gt;&lt;/iframe&gt;
+        </div>
+      </section>
+
+      <!-- OPTIONAL REPO LINK -->
+      <section class="case-section" data-reveal>
+        <h2>Code</h2>
+        <div class="repo-callout">
+          <p style="margin-bottom:0.5rem;">
+            Optional — link a separate public repository with the MATLAB analysis code.
+          </p>
+          <!-- Replace # with your repository URL, or remove this link if the code is private -->
+          <a class="btn btn-outline" href="#">View repository (add link)</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <a href="../index.html#projects">← All projects</a>
+      <a href="rotating-cylinder.html">Next: Rotating Cylinder Research →</a>
+    </div>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Sebastian Cosme-Reyes</span>
+    <span><a href="https://github.com/sebastiancosmereyes/sebastiancosmereyes.github.io" target="_blank" rel="noopener">Site source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/mach-cone.js" defer></script>
+
+</body>
+</html>

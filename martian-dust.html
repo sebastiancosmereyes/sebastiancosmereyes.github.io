@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Martian Dust Mitigation Research — Sebastian Cosme-Reyes</title>
+<meta name="description" content="Ongoing research investigating rotating-cylinder flow as a potential dust-mitigation method for Martian solar panels.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="../index.html">Sebastian Cosme-Reyes<span>.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="case-hero">
+    <canvas class="flow-canvas" data-flow-field aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="breadcrumb"><a href="../index.html#projects">← All projects</a></p>
+      <span class="case-status is-ongoing">Ongoing research — started Jun 2026</span>
+      <h1>Martian Dust Mitigation Research</h1>
+      <p class="case-summary">
+        Early-stage research into whether rotating-cylinder flow could help keep dust off
+        solar panels on Mars. This page reflects work in progress — not a proven result.
+      </p>
+
+      <dl class="case-facts">
+        <div>
+          <dt>Role</dt>
+          <dd>Research lead</dd>
+        </div>
+        <div>
+          <dt>Status</dt>
+          <dd>Ongoing</dd>
+        </div>
+        <div>
+          <dt>Method</dt>
+          <dd>Rotating cylinder–flat plate PIV</dd>
+        </div>
+        <div>
+          <dt>Program</dt>
+          <dd>Cal Poly SLO</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="case-body">
+    <div class="wrap">
+
+      <!-- OBJECTIVE -->
+      <section class="case-section" data-reveal>
+        <h2>Objective</h2>
+        <p class="measure">
+          Dust accumulation is one of the practical limits on solar-panel performance for
+          Mars missions. This project is investigating whether rotating-cylinder flow — the
+          same flow physics studied in the water-tunnel project on this site — could offer a
+          mechanical, low-maintenance way to reduce dust buildup on a panel surface.
+        </p>
+      </section>
+
+      <!-- CONTEXT / SCOPE -->
+      <section class="case-section" data-reveal>
+        <h2>Context &amp; scope</h2>
+        <p class="measure">
+          This is an early-stage, exploratory research project at Cal Poly SLO. The current
+          scope is establishing the experimental requirements: understanding Martian wind
+          conditions, dust-lifting thresholds, and deposition patterns well enough to design
+          a meaningful rotating-cylinder–flat-plate PIV experiment. No mitigation results
+          exist yet — this page will be updated as the experiment moves forward.
+        </p>
+      </section>
+
+      <!-- ROLE -->
+      <section class="case-section" data-reveal>
+        <h2>My role &amp; contributions</h2>
+        <p class="measure">
+          I'm leading this research. My work so far has focused on characterizing the
+          Martian environmental conditions relevant to the experiment and reviewing the
+          literature on rotating cylinder–flat plate flow configurations to inform the
+          experimental design.
+        </p>
+      </section>
+
+      <!-- APPROACH -->
+      <section class="case-section" data-reveal>
+        <h2>Engineering approach &amp; tools</h2>
+        <div class="case-grid-2">
+          <div>
+            <ul class="case-list">
+              <li>Characterizing Martian wind conditions and seasonal variation</li>
+              <li>Establishing dust-lifting thresholds and particle-force estimates</li>
+              <li>Studying annual dust-deposition patterns relevant to panel performance</li>
+              <li>Literature review of rotating cylinder–flat plate configurations across
+                  Reynolds numbers and reduced frequencies</li>
+              <li>Developing a rotating-cylinder–flat-plate PIV experiment based on the above</li>
+            </ul>
+          </div>
+          <div>
+            <div class="media-frame">Concept diagram — add image to assets/images/martian-dust/</div>
+            <p class="media-caption">
+              <!-- Replace with: <img src="../assets/images/martian-dust/concept.jpg" alt="Concept diagram of a rotating cylinder positioned above a flat solar-panel surface"> -->
+              Concept: a rotating cylinder positioned near a flat panel surface.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE DEMO: dust concept -->
+      <section class="case-section" data-reveal>
+        <h2>Concept animation</h2>
+        <p class="measure">
+          A simple, illustrative animation of the idea being investigated — dust settling on
+          a panel, with and without a rotating cylinder nearby. This is a concept sketch to
+          help explain the research question, not a simulation of real particle physics or
+          measured results.
+        </p>
+        <div class="demo">
+          <div class="demo-canvas-wrap">
+            <canvas id="dustCanvas"></canvas>
+          </div>
+          <div class="demo-controls">
+            <button class="demo-btn" id="dustToggle" type="button">Cylinder: off</button>
+            <button class="demo-btn" id="dustReset" type="button" style="background:transparent; color:var(--color-white); border:1px solid var(--color-dark-line);">Clear panel</button>
+          </div>
+          <p class="demo-note" id="dustStatus">Concept: no mitigation — dust settles freely on the panel.</p>
+          <p class="demo-note">
+            Illustrative only — no dust-mitigation performance has been demonstrated yet.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESULTS / MEDIA -->
+      <section class="case-section" data-reveal>
+        <h2>Current status &amp; takeaways</h2>
+        <p class="measure">
+          This project is in its literature-review and experimental-design phase. No
+          mitigation performance results are available yet. Update this section as the PIV
+          experiment is built and run, and add real data only once it exists.
+        </p>
+
+        <div class="media-block media-row">
+          <div>
+            <div class="media-frame">Setup diagram — add image</div>
+            <p class="media-caption">Placeholder — replace with the experimental setup diagram.</p>
+          </div>
+          <div>
+            <div class="media-frame">Environmental data — add image</div>
+            <p class="media-caption">Placeholder — replace with a wind/threshold characterization plot.</p>
+          </div>
+          <div>
+            <div class="media-frame">Future results — add image</div>
+            <p class="media-caption">Reserved for PIV or performance results once available.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIMITATIONS / FUTURE WORK -->
+      <section class="case-section" data-reveal>
+        <h2>Limitations &amp; future work</h2>
+        <p class="measure">
+          This is a concept under investigation, not a demonstrated solution — no
+          performance claims should be inferred from the project's existence. Next steps
+          include finalizing the experimental setup, building the rotating-cylinder–flat-plate
+          PIV rig, and collecting initial flow-field data.
+        </p>
+      </section>
+
+      <!-- OPTIONAL VIDEO -->
+      <section class="case-section" data-reveal>
+        <h2>Video</h2>
+        <p class="measure">Optional — add footage once experimental testing begins.</p>
+        <div class="video-frame is-placeholder">
+          Add a YouTube or Vimeo embed here once available. Replace this div with, for example:<br>
+          &lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Martian dust mitigation experiment" allowfullscreen&gt;&lt;/iframe&gt;
+        </div>
+      </section>
+
+      <!-- OPTIONAL REPO LINK -->
+      <section class="case-section" data-reveal>
+        <h2>Code</h2>
+        <div class="repo-callout">
+          <p style="margin-bottom:0.5rem;">
+            Optional — link a repository with literature-review notes or analysis scripts, if you choose to share one.
+          </p>
+          <a class="btn btn-outline" href="#">View repository (add link)</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <a href="rotating-cylinder.html">← Rotating Cylinder Research</a>
+      <a href="bipropellant-engine.html">Next: Bipropellant Rocket Engine →</a>
+    </div>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Sebastian Cosme-Reyes</span>
+    <span><a href="https://github.com/sebastiancosmereyes/sebastiancosmereyes.github.io" target="_blank" rel="noopener">Site source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/dust-demo.js" defer></script>
+
+</body>
+</html>

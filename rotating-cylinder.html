@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Water Tunnel Rotating Cylinder Research — Sebastian Cosme-Reyes</title>
+<meta name="description" content="A variable-speed rotating-cylinder apparatus and PIV study of circulation, lift, drag, and wake behavior tied to the Magnus effect.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="site-title" href="../index.html">Sebastian Cosme-Reyes<span>.</span></a>
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
+    <nav class="site-nav" id="siteNav" aria-label="Primary">
+      <ul>
+        <li><a href="../index.html#about">About</a></li>
+        <li><a href="../index.html#projects" aria-current="page">Projects</a></li>
+        <li><a href="../index.html#skills">Skills</a></li>
+        <li><a href="../index.html#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="case-hero">
+    <canvas class="flow-canvas" data-flow-field aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="breadcrumb"><a href="../index.html#projects">← All projects</a></p>
+      <span class="case-status">Completed — Oct 2025 to Jun 2026</span>
+      <h1>Water Tunnel Rotating Cylinder Research</h1>
+      <p class="case-summary">
+        A purpose-built rotating-cylinder apparatus and PIV study connecting classical
+        Magnus-effect theory to real, measured wake behavior in a water tunnel.
+      </p>
+
+      <dl class="case-facts">
+        <div>
+          <dt>Role</dt>
+          <dd>Research lead</dd>
+        </div>
+        <div>
+          <dt>Max speed</dt>
+          <dd>100 RPM</dd>
+        </div>
+        <div>
+          <dt>Tools</dt>
+          <dd>Arduino, PIV, CAD, fabrication</dd>
+        </div>
+        <div>
+          <dt>Program</dt>
+          <dd>Cal Poly SLO</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  <div class="case-body">
+    <div class="wrap">
+
+      <!-- OBJECTIVE -->
+      <section class="case-section" data-reveal>
+        <h2>Objective</h2>
+        <p class="measure">
+          The goal was to design and build a variable-speed rotating-cylinder apparatus for
+          a low-speed water tunnel, then use it to characterize the circulation, lift, drag,
+          and wake behavior associated with the Magnus effect — and check those measurements
+          against classical inviscid-flow and Kutta-Joukowski theory.
+        </p>
+      </section>
+
+      <!-- CONTEXT / SCOPE -->
+      <section class="case-section" data-reveal>
+        <h2>Context &amp; scope</h2>
+        <p class="measure">
+          This was a Cal Poly SLO research project spanning apparatus design, fabrication,
+          controls, and experimental testing. The rotating-cylinder configuration is also the
+          same underlying flow physics behind the later Martian dust-mitigation research on
+          this site — this project built the apparatus and measurement approach that made
+          that follow-on work possible.
+        </p>
+      </section>
+
+      <!-- ROLE -->
+      <section class="case-section" data-reveal>
+        <h2>My role &amp; contributions</h2>
+        <p class="measure">
+          I led this research. I designed and fabricated the rotating-cylinder apparatus,
+          developed the Arduino-controlled stepper-motor and belt-drive system for precise
+          speed control up to 100 RPM, and ran the PIV analysis used to characterize the
+          resulting flow field.
+        </p>
+      </section>
+
+      <!-- APPROACH -->
+      <section class="case-section" data-reveal>
+        <h2>Engineering approach &amp; tools</h2>
+        <div class="case-grid-2">
+          <div>
+            <ul class="case-list">
+              <li>CAD design of the cylinder, mounting, and drive system</li>
+              <li>Arduino-controlled stepper motor with belt drive, precise to 100 RPM</li>
+              <li>Fabrication of the apparatus for mounting in the water tunnel</li>
+              <li>Particle Image Velocimetry (PIV) to capture the surrounding flow field</li>
+              <li>Post-processing to extract circulation, vorticity, lift, and drag</li>
+              <li>Comparison against inviscid-flow and Kutta-Joukowski predictions</li>
+            </ul>
+          </div>
+          <div>
+            <div class="media-frame">Apparatus photo — add image to assets/images/rotating-cylinder/</div>
+            <p class="media-caption">
+              <!-- Replace with: <img src="../assets/images/rotating-cylinder/apparatus.jpg" alt="Rotating cylinder apparatus mounted in the water tunnel test section"> -->
+              The rotating-cylinder apparatus mounted in the water tunnel.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- INTERACTIVE DEMO: Magnus effect -->
+      <section class="case-section" data-reveal>
+        <h2>Try it: Magnus effect</h2>
+        <p class="measure">
+          This shows the idealized potential-flow model behind the comparison used in this
+          project — uniform flow plus a doublet plus a vortex. Increasing rotation speed
+          adds circulation, and the streamlines shift asymmetrically around the cylinder.
+        </p>
+        <div class="demo">
+          <div class="demo-canvas-wrap">
+            <canvas id="magnusCanvas"></canvas>
+          </div>
+          <div class="demo-controls">
+            <div class="demo-control">
+              <label for="magnusSlider">Rotation speed <output id="magnusReadout">0</output> RPM</label>
+              <input type="range" id="magnusSlider" min="0" max="100" step="1" value="0">
+            </div>
+          </div>
+          <p class="demo-note" id="magnusLiftNote">No rotation — symmetric flow, no net deflection.</p>
+          <p class="demo-note">
+            This is the idealized Kutta-Joukowski model, drawn for illustration — not the
+            actual PIV flow-field data collected in the water tunnel.
+          </p>
+        </div>
+      </section>
+
+      <!-- RESULTS / MEDIA -->
+      <section class="case-section" data-reveal>
+        <h2>Results &amp; key takeaways</h2>
+        <p class="measure">
+          PIV measurements were used to characterize circulation, vorticity, lift, drag, and
+          wake behavior across rotation speeds, and compared with inviscid-flow and
+          Kutta-Joukowski theory. Add your specific findings and figures here.
+        </p>
+
+        <div class="media-block media-row">
+          <div>
+            <div class="media-frame">CAD render — add image</div>
+            <p class="media-caption">Placeholder — replace with a CAD render of the apparatus.</p>
+          </div>
+          <div>
+            <div class="media-frame">PIV flow field — add image</div>
+            <p class="media-caption">Placeholder — replace with a PIV velocity-field image.</p>
+          </div>
+          <div>
+            <div class="media-frame">Vorticity plot — add image</div>
+            <p class="media-caption">Placeholder — replace with a vorticity or circulation plot.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- LIMITATIONS / FUTURE WORK -->
+      <section class="case-section" data-reveal>
+        <h2>Limitations &amp; future work</h2>
+        <p class="measure">
+          Note any gap between the idealized Kutta-Joukowski comparison and the real,
+          viscous flow measured in the tunnel, along with any apparatus or measurement
+          limitations you encountered. This apparatus and methodology also carried directly
+          into the Martian dust-mitigation research on this site.
+        </p>
+      </section>
+
+      <!-- OPTIONAL VIDEO -->
+      <section class="case-section" data-reveal>
+        <h2>Video</h2>
+        <p class="measure">Optional — add water-tunnel footage of the apparatus in operation.</p>
+        <div class="video-frame is-placeholder">
+          Add a YouTube or Vimeo embed here. Replace this div with, for example:<br>
+          &lt;iframe src="https://www.youtube.com/embed/YOUR_VIDEO_ID" title="Rotating cylinder water tunnel test" allowfullscreen&gt;&lt;/iframe&gt;
+        </div>
+      </section>
+
+      <!-- OPTIONAL REPO LINK -->
+      <section class="case-section" data-reveal>
+        <h2>Code</h2>
+        <div class="repo-callout">
+          <p style="margin-bottom:0.5rem;">
+            Optional — link a repository with the Arduino control code or PIV post-processing scripts.
+          </p>
+          <a class="btn btn-outline" href="#">View repository (add link)</a>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+  <nav class="case-nav" aria-label="Project navigation">
+    <div class="wrap" style="display:flex; justify-content:space-between; width:100%;">
+      <a href="bell-x1.html">← Bell X-1 Analysis</a>
+      <a href="martian-dust.html">Next: Martian Dust Mitigation →</a>
+    </div>
+  </nav>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <span>© <span id="year">2026</span> Sebastian Cosme-Reyes</span>
+    <span><a href="https://github.com/sebastiancosmereyes/sebastiancosmereyes.github.io" target="_blank" rel="noopener">Site source on GitHub</a></span>
+  </div>
+</footer>
+
+<script src="../assets/js/site.js" defer></script>
+<script src="../assets/js/magnus-demo.js" defer></script>
+
+</body>
+</html>
