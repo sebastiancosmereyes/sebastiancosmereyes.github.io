@@ -1042,3 +1042,45 @@ button:focus-visible,
 @media (max-width: 640px) {
   .stat-row { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* -----------------------------------------------------------------------
+   Hero headshot
+   ----------------------------------------------------------------------- */
+
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  margin-bottom: var(--space-2);
+}
+
+.hero-title-row h1 {
+  flex: 1;
+  min-width: 0;
+  max-width: none;
+  margin: 0;
+}
+
+.hero-headshot {
+  width: 155px;
+  height: 155px;
+  flex-shrink: 0;
+  object-fit: cover;
+  border: 3px solid var(--color-accent);
+  border-radius: 50%;
+  box-shadow: 0 0 0 8px rgba(79, 198, 221, 0.12);
+}
+
+/* Put the image above the name on narrower screens */
+@media (max-width: 700px) {
+  .hero-title-row {
+    align-items: flex-start;
+    flex-direction: column-reverse;
+    gap: var(--space-2);
+  }
+
+  .hero-headshot {
+    width: 115px;
+    height: 115px;
+  }
+}
